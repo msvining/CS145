@@ -124,7 +124,7 @@ public class MVBlackjack {
 
             if (!houseStand) { //if the house has not stood, make a move
 
-                if (houseHand.getValue() >= 17 && houseHand.getValue() < playerHand.getValue()) {
+                if (houseHand.getValue() >= 17 && houseHand.getValue() > playerHand.getValue()) {
 
                     System.out.println("The house stood"); //if the house is above 17 and above the value of the player hand, stand
                     houseStand = true;
