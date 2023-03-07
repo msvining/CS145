@@ -1,3 +1,11 @@
+// Marlen Vining
+// 1/11/22
+// Lab #6
+//
+//This program will do the following:
+//Store data in a binary search tree
+//
+
 import java.util.Scanner; //Import scanner class for user input
 
 public class MVBinaryTree {
