@@ -1,49 +1,51 @@
+//class for file processor
+
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
 
 public class FileReader {
 
-  String lines[];
+  String lines[]; //variable to store the lines in a file
 
   public FileReader(String fileName) {
 
-    String text = "";
+    String text = ""; //variable to store the text in the file
 
     try {
 
-      File myObj = new File(fileName);
-      Scanner myReader = new Scanner(myObj);
+      File fileReader = new File(fileName); //open the file
+      Scanner scanner = new Scanner(fileReader); //create a reader
 
-      while (myReader.hasNextLine()) {
+      while (scanner.hasNextLine()) { //loop through the lines in the file
       
-        String data = myReader.nextLine();
+        String data = myReader.nextLine(); //add each line to the string
         text += data + "\n"; 
       
       }
 
-      myReader.close();
+      myReader.close(); //close the reader
 
     } catch (FileNotFoundException e) {
       
       System.out.println("File could not be opened. Generating random");
-      lines = new String[0];
+      lines = new String[0]; //if nothing is found, generate random instead
     
     }
 
-    lines = text.split("\n");
+    lines = text.split("\n"); //split the string into lines
   }
 
-  public int[][] toGrid(){
+  public int[][] toGrid(){ //method to convert the lines to a grid
 
-    int[][] grid = new int[lines.length][lines[0].length()];
+    int[][] grid = new int[lines.length][lines[0].length()]; //create an empty grid of ints
 
     for(int i = 0; i < lines.length; i++) {
 
-      for (int j = 0; j < lines[0].length(); j++) {
+      for (int j = 0; j < lines[0].length(); j++) { //loop through every character
 
         char c = lines[i].charAt(j);
-        int val = Character.getNumericValue(c);
+        int val = Character.getNumericValue(c); //set each value in the grid to the int value of the character
 
         grid[i][j] = val;
 
@@ -51,7 +53,7 @@ public class FileReader {
 
     }
 
-    return grid;
+    return grid; //return the grid
 
   }
 
