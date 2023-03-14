@@ -78,7 +78,7 @@ public class MVGameOfLife {
     } else {
 
       System.out.println("invalid command");
-      setpu(); //if none, tell the user and start over
+      setup(); //if none, tell the user and start over
       return;
 
     }
